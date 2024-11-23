@@ -1,0 +1,21 @@
+<h1>Sửa thông tin đặt chỗ</h1>
+<form action="/bookings/<%= booking._id %>" method="POST" style="max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+  <div style="margin-bottom: 15px;">
+    <label for="customerName" style="font-weight: bold; display: block; margin-bottom: 5px;">Tên khách hàng:</label>
+    <input type="text" id="customerName" name="customerName" value="<%= booking.customerName %>" required style="width: 100%; padding: 8px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px;" />
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <label for="date" style="font-weight: bold; display: block; margin-bottom: 5px;">Ngày:</label>
+    <input type="date" id="date" name="date" value="<%= booking.date %>" required style="width: 100%; padding: 8px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px;" />
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <label for="time" style="font-weight: bold; display: block; margin-bottom: 5px;">Giờ:</label>
+    <input type="time" id="time" name="time" value="<%= booking.time %>" required style="width: 100%; padding: 8px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px;" />
+  </div>
+
+  <button type="submit" style="width: 100%; padding: 10px 0; background-color: #4CAF50; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">
+    Cập nhật
+  </button>
+</form>

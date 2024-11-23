@@ -1,0 +1,35 @@
+<h1>Danh sách lịch đặt chỗ</h1>
+<a href="/bookings/new" style="display: inline-block; margin-bottom: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px;">Đặt chỗ mới</a>
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+  <thead style="background-color: #f2f2f2;">
+    <tr>
+      <th style="padding: 10px; text-align: left;">ID</th>
+      <th style="padding: 10px; text-align: left;">Khách hàng</th>
+      <th style="padding: 10px; text-align: left;">Ngày</th>
+      <th style="padding: 10px; text-align: left;">Giờ</th>
+      <th style="padding: 10px; text-align: left;">Trạng thái</th>
+      <th style="padding: 10px; text-align: left;">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% bookings.forEach((booking) => { %>
+      <tr>
+        <td style="padding: 10px; border-top: 1px solid #ddd;"><%= booking._id %></td>
+        <td style="padding: 10px; border-top: 1px solid #ddd;"><%= booking.customerName %></td>
+        <td style="padding: 10px; border-top: 1px solid #ddd;"><%= booking.date %></td>
+        <td style="padding: 10px; border-top: 1px solid #ddd;"><%= booking.time %></td>
+        <td style="padding: 10px; border-top: 1px solid #ddd; color: 
+          <%= booking.status === 'Pending' ? 'yellow' : booking.status === 'Confirmed' ? 'green' : 'red' %>;">
+          <%= booking.status %>
+        </td>
+        <td style="padding: 10px; border-top: 1px solid #ddd;">
+          <a href="/bookings/<%= booking._id %>/edit" style="padding: 5px 10px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 4px; margin-right: 10px;">Sửa</a>
+          <form action="/bookings/<%= booking._id %>/cancel" method="POST" style="display:inline;">
+            <button type="submit" style="padding: 5px 10px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer;">Hủy</button>
+          </form>
+        </td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
