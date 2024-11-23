@@ -3,7 +3,7 @@ import bookingController from '../controllers/bookingController.js';
 
 const router = express.Router();
 
-// Routes
+
 router.get('/', bookingController.getAllBookings);
 router.get('/new', bookingController.newBookingForm);
 router.post('/', bookingController.createBooking);
